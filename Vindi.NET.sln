@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vindi.NET", "Vindi.NET\Vindi.NET.csproj", "{D631D9EF-C9AF-4F23-A5F0-E3CAF8464ED9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vindi.NET", "Vindi.NET\Vindi.NET.csproj", "{D631D9EF-C9AF-4F23-A5F0-E3CAF8464ED9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vindi.NET.ConsoleTest", "Vindi.NET.Console\Vindi.NET.ConsoleTest.csproj", "{05011A5C-36E4-4755-9BA4-874846ED5964}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D631D9EF-C9AF-4F23-A5F0-E3CAF8464ED9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D631D9EF-C9AF-4F23-A5F0-E3CAF8464ED9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D631D9EF-C9AF-4F23-A5F0-E3CAF8464ED9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05011A5C-36E4-4755-9BA4-874846ED5964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05011A5C-36E4-4755-9BA4-874846ED5964}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05011A5C-36E4-4755-9BA4-874846ED5964}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05011A5C-36E4-4755-9BA4-874846ED5964}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

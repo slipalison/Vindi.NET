@@ -12,4 +12,5 @@ namespace Vindi.NET.Model
         public object[] pricing_ranges { get; set; }
         public DateTime created_at { get; set; }
     }
+
 }
