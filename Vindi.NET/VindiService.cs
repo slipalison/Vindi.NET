@@ -118,7 +118,7 @@ namespace Vindi.NET
                 .WithHeaders(new { Authorization = _authorization })
                 .GetJsonAsync();
 
-        public static T FromDynamic<T>(dynamic d) where T : class => (T)Convert.ChangeType(d, typeof(T));
+        private static T FromDynamic<T>(dynamic d) where T : class => (T)Convert.ChangeType(d, typeof(T));
 
         private static string VindiQueryString(IDictionary<FilterSearch, string> query)
             => query != null ? $"&query={string.Join(" ", query.Select(x => $"{x.Key}:{x.Value}"))}" : string.Empty;
