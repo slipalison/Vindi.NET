@@ -9,5 +9,17 @@ namespace Vindi.NET.Model
     }
 
 
+    public class Rootobject
+    {
+        public Subscription[] subscriptions { get; set; }
+    }
+
+
+
+
+
+
+
+
 
 }
