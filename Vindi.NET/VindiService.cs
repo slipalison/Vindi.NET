@@ -211,6 +211,23 @@ namespace Vindi.NET
             return FromDynamic<Role>(result?.role);
         }
 
+        public async Task<Discount> GetDiscountByIdAsync(int id)
+        {
+            var result = await SearchByIdAsync("discounts", id);
+            return FromDynamic<Discount>(result?.discount);
+        }
+
+        public async Task<Product_Items> GetProductItemByIdAsync(int id)
+        {
+            var result = await SearchByIdAsync("product_items", id);
+            return FromDynamic<Product_Items>(result?.product_item);
+        }
+
+        public async Task<Bill_Items> GetBillItemByIdAsync(int id)
+        {
+            var result = await SearchByIdAsync("bill_items", id);
+            return FromDynamic<Bill_Items>(result?.bill_item);
+        }
 
 
         private async Task<dynamic> SearchByAnythingAsync(string uri, IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
