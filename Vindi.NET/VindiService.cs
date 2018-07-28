@@ -113,6 +113,103 @@ namespace Vindi.NET
         }
 
 
+        public async Task<dynamic> GetCustomersByIdAsync(int id)
+        {
+            var list = await $@"{_urlApi}/customers/{id}".WithHeaders(new { Authorization = _authorization }).GetJsonAsync();
+            return list;
+        }
+
+        public async Task<dynamic> GetPlansByIdAsync(int id)
+        {
+            var list = await $@"{_urlApi}/plans/{id}".WithHeaders(new { Authorization = _authorization }).GetJsonAsync();
+            return list;
+        }
+
+        public async Task<dynamic> GetProductsByIdAsync(int id)
+        {
+            var list = await $@"{_urlApi}/products/{id}".WithHeaders(new { Authorization = _authorization }).GetJsonAsync();
+            return list;
+        }
+
+        public async Task<dynamic> GetPaymentMethoidsByIdAsync(int id)
+        {
+            var list = await $@"{_urlApi}/payment_methods/{id}".WithHeaders(new { Authorization = _authorization }).GetJsonAsync();
+            return list;
+        }
+
+        public async Task<dynamic> GetSubscriptionsByIdAsync(int id)
+        {
+            var list = await $@"{_urlApi}/subscriptions/{id}".WithHeaders(new { Authorization = _authorization }).GetJsonAsync();
+            return list;
+        }
+
+        public async Task<dynamic> GetPeriodsByIdAsync(int id)
+        {
+            var list = await $@"{_urlApi}/periods/{id}".WithHeaders(new { Authorization = _authorization }).GetJsonAsync();
+            return list;
+        }
+
+        public async Task<dynamic> GetBillsByIdAsync(int id)
+        {
+            var list = await $@"{_urlApi}/bills/{id}".WithHeaders(new { Authorization = _authorization }).GetJsonAsync();
+            return list;
+        }
+
+        public async Task<dynamic> GetChargesByIdAsync(int id)
+        {
+            var list = await $@"{_urlApi}/charges/{id}".WithHeaders(new { Authorization = _authorization }).GetJsonAsync();
+            return list;
+        }
+
+        public async Task<dynamic> GetInvoicesByIdAsync(int id)
+        {
+            var list = await $@"{_urlApi}/invoices/{id}".WithHeaders(new { Authorization = _authorization }).GetJsonAsync();
+            return list;
+        }
+        public async Task<dynamic> GetMessagesByIdAsync(int id)
+        {
+            var list = await $@"{_urlApi}/messages/{id}".WithHeaders(new { Authorization = _authorization }).GetJsonAsync();
+            return list;
+        }
+
+        public async Task<dynamic> GetImportBatchesByIdAsync(int id)
+        {
+            var list = await $@"{_urlApi}/import_batches/{id}".WithHeaders(new { Authorization = _authorization }).GetJsonAsync();
+            return list;
+        }
+
+        public async Task<dynamic> GetIssuesByIdAsync(int id)
+        {
+            var list = await $@"{_urlApi}/issues/{id}".WithHeaders(new { Authorization = _authorization }).GetJsonAsync();
+            return list;
+        }
+
+        public async Task<dynamic> GetNotificationsByIdAsync(int id)
+        {
+            var list = await $@"{_urlApi}/notifications/{id}".WithHeaders(new { Authorization = _authorization }).GetJsonAsync();
+            return list;
+        }
+
+        public async Task<dynamic> GetMerchantsByIdAsync(int id)
+        {
+            var list = await $@"{_urlApi}/merchants/{id}".WithHeaders(new { Authorization = _authorization }).GetJsonAsync();
+            return list;
+        }
+
+        public async Task<dynamic> GetMerchantUsersByIdAsync(int id)
+        {
+            var list = await $@"{_urlApi}/merchant_users/{id}".WithHeaders(new { Authorization = _authorization }).GetJsonAsync();
+            return list;
+        }
+
+        public async Task<dynamic> GetRolesByIdAsync(int id)
+        {
+            var list = await $@"{_urlApi}/roles/{id}".WithHeaders(new { Authorization = _authorization }).GetJsonAsync();
+            return list;
+        }
+
+
+
         private async Task<dynamic> Search(string uri, IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
             => await $@"{_urlApi}/{uri}?page={page}&per_page={perPage}&sort_by={filterSearch.ToString()}&sort_order={sortOrder.ToString()}{VindiQueryString(query)}"
                 .WithHeaders(new { Authorization = _authorization })
