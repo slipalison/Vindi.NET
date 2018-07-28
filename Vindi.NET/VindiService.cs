@@ -70,6 +70,7 @@ namespace Vindi.NET
             var list = await Search("invoices", query = null, page, perPage, filterSearch, sortOrder);
             return list;
         }
+
         public async Task<dynamic> GetMessagesByAnythingAsync(IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
         {
             var list = await Search("messages", query = null, page, perPage, filterSearch, sortOrder);
@@ -111,7 +112,6 @@ namespace Vindi.NET
             var list = await Search("roles", query = null, page, perPage, filterSearch, sortOrder);
             return list;
         }
-
 
         public async Task<dynamic> GetCustomersByIdAsync(int id)
         {
@@ -166,6 +166,7 @@ namespace Vindi.NET
             var list = await $@"{_urlApi}/invoices/{id}".WithHeaders(new { Authorization = _authorization }).GetJsonAsync();
             return list;
         }
+
         public async Task<dynamic> GetMessagesByIdAsync(int id)
         {
             var list = await $@"{_urlApi}/messages/{id}".WithHeaders(new { Authorization = _authorization }).GetJsonAsync();
