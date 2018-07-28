@@ -1,7 +1,6 @@
 ﻿using Flurl.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -116,84 +115,100 @@ namespace Vindi.NET
             return FromDynamic<IEnumerable<Role>>(list?.roles);
         }
 
-        public async Task<dynamic> GetCustomersByIdAsync(int id)
+        public async Task<Customer> GetCustomersByIdAsync(int id)
         {
-            return await SearchByIdAsync("customers", id);
+            var result = await SearchByIdAsync("customers", id);
+            return FromDynamic<Customer>(result?.customer);
         }
 
-        public async Task<dynamic> GetPlansByIdAsync(int id)
+        public async Task<Plan> GetPlansByIdAsync(int id)
         {
-            return await SearchByIdAsync("plans", id); 
+            var result = await SearchByIdAsync("plans", id);
+            return FromDynamic<Plan>(result?.plan);
         }
 
-        public async Task<dynamic> GetProductsByIdAsync(int id)
+        public async Task<Product> GetProductsByIdAsync(int id)
         {
-            return await SearchByIdAsync("products", id);
+            var result = await SearchByIdAsync("products", id);
+            return FromDynamic<Product>(result?.product);
         }
 
-        public async Task<dynamic> GetPaymentMethoidsByIdAsync(int id)
+        public async Task<Payment_Method> GetPaymentMethoidsByIdAsync(int id)
         {
-            return await SearchByIdAsync("payment_methods", id);
+            var result = await SearchByIdAsync("payment_methods", id);
+            return FromDynamic<Payment_Method>(result?.payment_method);
         }
 
-        public async Task<dynamic> GetSubscriptionsByIdAsync(int id)
+        public async Task<Subscription> GetSubscriptionsByIdAsync(int id)
         {
-            return await SearchByIdAsync("subscriptions", id);
+            var result = await SearchByIdAsync("subscriptions", id);
+            return FromDynamic<Subscription>(result?.subscription);
         }
 
-        public async Task<dynamic> GetPeriodsByIdAsync(int id)
+        public async Task<Period> GetPeriodsByIdAsync(int id)
         {
-            return await SearchByIdAsync("periods", id);
+            var result = await SearchByIdAsync("periods", id);
+            return FromDynamic<Period>(result?.period);
         }
 
-        public async Task<dynamic> GetBillsByIdAsync(int id)
+        public async Task<Bill> GetBillsByIdAsync(int id)
         {
-            return await SearchByIdAsync("bills", id);
+            var result = await SearchByIdAsync("bills", id);
+            return FromDynamic<Bill>(result?.bill);
         }
 
-        public async Task<dynamic> GetChargesByIdAsync(int id)
+        public async Task<Charge> GetChargesByIdAsync(int id)
         {
-            return await SearchByIdAsync("charges", id);
+            var result = await SearchByIdAsync("charges", id);
+            return FromDynamic<Charge>(result?.charge);
         }
 
-        public async Task<dynamic> GetInvoicesByIdAsync(int id)
+        public async Task<Invoice> GetInvoicesByIdAsync(int id)
         {
-            return await SearchByIdAsync("invoices", id);
+            var result = await SearchByIdAsync("invoices", id);
+            return FromDynamic<Invoice>(result?.invoice);
         }
 
-        public async Task<dynamic> GetMessagesByIdAsync(int id)
+        public async Task<Message> GetMessagesByIdAsync(int id)
         {
-            return await SearchByIdAsync("messages", id);
+            var result = await SearchByIdAsync("messages", id);
+            return FromDynamic<Message>(result?.message);
         }
 
-        public async Task<dynamic> GetImportBatchesByIdAsync(int id)
+        public async Task<Import_Batche> GetImportBatchesByIdAsync(int id)
         {
-            return await SearchByIdAsync("import_batches", id);
+            var result = await SearchByIdAsync("import_batches", id);
+            return FromDynamic<Import_Batche>(result?.import_batche);
         }
 
-        public async Task<dynamic> GetIssuesByIdAsync(int id)
+        public async Task<Issue> GetIssuesByIdAsync(int id)
         {
-            return await SearchByIdAsync("issues", id);
+            var result = await SearchByIdAsync("issues", id);
+            return FromDynamic<Issue>(result?.issue);
         }
 
-        public async Task<dynamic> GetNotificationsByIdAsync(int id)
+        public async Task<Notification> GetNotificationsByIdAsync(int id)
         {
-            return await SearchByIdAsync("notifications", id);
+            var result = await SearchByIdAsync("notifications", id);
+            return FromDynamic<Notification>(result?.notification);
         }
 
-        public async Task<dynamic> GetMerchantsByIdAsync(int id)
+        public async Task<Merchant> GetMerchantsByIdAsync(int id)
         {
-            return await SearchByIdAsync("merchants", id);
+            var result = await SearchByIdAsync("merchants", id);
+            return FromDynamic<Merchant>(result?.merchant);
         }
 
-        public async Task<dynamic> GetMerchantUsersByIdAsync(int id)
+        public async Task<Merchant_Users> GetMerchantUsersByIdAsync(int id)
         {
-            return await SearchByIdAsync("merchant_users", id);
+            var result = await SearchByIdAsync("merchant_users", id);
+            return FromDynamic<Merchant_Users>(result?.merchant_user);
         }
 
-        public async Task<dynamic> GetRolesByIdAsync(int id)
+        public async Task<Role> GetRolesByIdAsync(int id)
         {
-            return await SearchByIdAsync("roles", id);
+            var result = await SearchByIdAsync("roles", id);
+            return FromDynamic<Role>(result?.role);
         }
 
 
@@ -203,7 +218,7 @@ namespace Vindi.NET
                 .WithHeaders(new { Authorization = _authorization })
                 .GetJsonAsync();
 
-        private async Task<dynamic> SearchByIdAsync(string uri, int id) 
+        private async Task<dynamic> SearchByIdAsync(string uri, int id)
             => await $@"{_urlApi}/{uri}/{id}"
                 .WithHeaders(new { Authorization = _authorization })
                 .GetJsonAsync();
@@ -214,7 +229,6 @@ namespace Vindi.NET
             var p = JsonConvert.SerializeObject(d);
             if (p.StartsWith("["))
                 return JArray.Parse(p).ToObject<T>();
-
             return JObject.Parse(p).ToObject<T>();
         }
 
