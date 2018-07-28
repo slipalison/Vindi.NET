@@ -233,6 +233,6 @@ namespace Vindi.NET
         }
 
         private static string VindiQueryString(IDictionary<FilterSearch, string> query)
-            => query != null ? $"&query={string.Join(" ", query.Select(x => $"{x.Key}:{x.Value}"))}" : string.Empty;
+            => query != null ? $"&query={string.Join(" ", query.Select(x => $"{x.Key.ToString()}:{x.Value}"))}" : string.Empty;
     }
 }
