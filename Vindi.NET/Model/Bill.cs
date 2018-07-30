@@ -8,7 +8,7 @@ namespace Vindi.NET.Model
         public int id { get; set; }
         public object code { get; set; }
         public string amount { get; set; }
-        public int installments { get; set; }
+        public int? installments { get; set; }
         public string status { get; set; }
         public object seen_at { get; set; }
         public object billing_at { get; set; }

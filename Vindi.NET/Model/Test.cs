@@ -42,5 +42,4 @@ namespace Vindi.NET.Model
 
 
 
-
 }
