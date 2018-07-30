@@ -17,7 +17,7 @@ namespace Vindi.NET.Model
         public object fraud_detector_score { get; set; }
         public object fraud_detector_status { get; set; }
         public object fraud_detector_id { get; set; }
-        public DateTime created_at { get; set; }
+        public DateTime? created_at { get; set; }
         public Gateway gateway { get; set; }
         public Payment_Profile payment_profile { get; set; }
     }

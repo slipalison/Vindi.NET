@@ -17,7 +17,7 @@ namespace Vindi.NET.Model
         public bool allow_as_alternative { get; set; }
         public Payment_Companies[] payment_companies { get; set; }
         public int? maximum_attempts { get; set; }
-        public DateTime created_at { get; set; }
-        public DateTime updated_at { get; set; }
+        public DateTime? created_at { get; set; }
+        public DateTime? updated_at { get; set; }
     }
 }

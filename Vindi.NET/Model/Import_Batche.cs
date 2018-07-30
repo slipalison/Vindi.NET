@@ -10,6 +10,6 @@
         public string url { get; set; }
         public string created_at { get; set; }
         public string updated_at { get; set; }
-        public Payment_Method payment_method { get; set; }
+        public Payment_Methods payment_method { get; set; }
     }
 }

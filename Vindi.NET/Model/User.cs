@@ -8,6 +8,6 @@ namespace Vindi.NET.Model
         public string name { get; set; }
         public string email { get; set; }
         public string status { get; set; }
-        public DateTime created_at { get; set; }
+        public DateTime? created_at { get; set; }
     }
 }

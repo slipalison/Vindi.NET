@@ -22,97 +22,97 @@ namespace Vindi.NET
 
         public async Task<IEnumerable<Customer>> GetCustomersByAnythingAsync(IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
         {
-            var list = await SearchByAnythingAsync("customers", query , page, perPage, filterSearch, sortOrder);
+            var list = await SearchByAnythingAsync("customers", query, page, perPage, filterSearch, sortOrder);
             return FromDynamic<IEnumerable<Customer>>(list?.customers);
         }
 
         public async Task<IEnumerable<Plan>> GetPlansByAnythingAsync(IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
         {
-            var list = await SearchByAnythingAsync("plans", query , page, perPage, filterSearch, sortOrder);
+            var list = await SearchByAnythingAsync("plans", query, page, perPage, filterSearch, sortOrder);
             return FromDynamic<IEnumerable<Plan>>(list?.plans);
         }
 
         public async Task<IEnumerable<Product>> GetProductsByAnythingAsync(IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
         {
-            var list = await SearchByAnythingAsync("products", query , page, perPage, filterSearch, sortOrder);
+            var list = await SearchByAnythingAsync("products", query, page, perPage, filterSearch, sortOrder);
             return FromDynamic<IEnumerable<Product>>(list?.products);
         }
 
         public async Task<IEnumerable<Payment_Methods>> GetPaymentMethoidsByAnythingAsync(IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
         {
-            var list = await SearchByAnythingAsync("payment_methods", query , page, perPage, filterSearch, sortOrder);
+            var list = await SearchByAnythingAsync("payment_methods", query, page, perPage, filterSearch, sortOrder);
             return FromDynamic<IEnumerable<Payment_Methods>>(list?.payment_methods);
         }
 
         public async Task<IEnumerable<Subscription>> GetSubscriptionsByAnythingAsync(IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
         {
-            var list = await SearchByAnythingAsync("subscriptions", query , page, perPage, filterSearch, sortOrder);
+            var list = await SearchByAnythingAsync("subscriptions", query, page, perPage, filterSearch, sortOrder);
             return FromDynamic<IEnumerable<Subscription>>(list?.subscriptions);
         }
 
         public async Task<IEnumerable<Period>> GetPeriodsByAnythingAsync(IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
         {
-            var list = await SearchByAnythingAsync("periods", query , page, perPage, filterSearch, sortOrder);
+            var list = await SearchByAnythingAsync("periods", query, page, perPage, filterSearch, sortOrder);
             return FromDynamic<IEnumerable<Period>>(list?.periods);
         }
 
         public async Task<IEnumerable<Bill>> GetBillsByAnythingAsync(IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
         {
-            var list = await SearchByAnythingAsync("bills", query , page, perPage, filterSearch, sortOrder);
+            var list = await SearchByAnythingAsync("bills", query, page, perPage, filterSearch, sortOrder);
             return FromDynamic<IEnumerable<Bill>>(list?.bills);
         }
 
         public async Task<IEnumerable<Charge>> GetChargesByAnythingAsync(IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.created_at, SortOrder sortOrder = SortOrder.asc)
         {
-            var list = await SearchByAnythingAsync("charges", query , page, perPage, filterSearch, sortOrder);
+            var list = await SearchByAnythingAsync("charges", query, page, perPage, filterSearch, sortOrder);
             return FromDynamic<IEnumerable<Charge>>(list?.charges);
         }
 
         public async Task<IEnumerable<Invoice>> GetInvoicesByAnythingAsync(IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
         {
-            var list = await SearchByAnythingAsync("invoices", query , page, perPage, filterSearch, sortOrder);
+            var list = await SearchByAnythingAsync("invoices", query, page, perPage, filterSearch, sortOrder);
             return FromDynamic<IEnumerable<Invoice>>(list?.invoices);
         }
 
         public async Task<IEnumerable<Message>> GetMessagesByAnythingAsync(IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
         {
-            var list = await SearchByAnythingAsync("messages", query , page, perPage, filterSearch, sortOrder);
+            var list = await SearchByAnythingAsync("messages", query, page, perPage, filterSearch, sortOrder);
             return FromDynamic<IEnumerable<Message>>(list?.messages);
         }
 
         public async Task<IEnumerable<Import_Batche>> GetImportBatchesByAnythingAsync(IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
         {
-            var list = await SearchByAnythingAsync("import_batches", query , page, perPage, filterSearch, sortOrder);
+            var list = await SearchByAnythingAsync("import_batches", query, page, perPage, filterSearch, sortOrder);
             return FromDynamic<IEnumerable<Import_Batche>>(list?.import_batches);
         }
 
         public async Task<IEnumerable<Issue>> GetIssuesByAnythingAsync(IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
         {
-            var list = await SearchByAnythingAsync("issues", query , page, perPage, filterSearch, sortOrder);
+            var list = await SearchByAnythingAsync("issues", query, page, perPage, filterSearch, sortOrder);
             return FromDynamic<IEnumerable<Issue>>(list?.issues);
         }
 
         public async Task<IEnumerable<Notification>> GetNotificationsByAnythingAsync(IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
         {
-            var list = await SearchByAnythingAsync("notifications", query , page, perPage, filterSearch, sortOrder);
+            var list = await SearchByAnythingAsync("notifications", query, page, perPage, filterSearch, sortOrder);
             return FromDynamic<IEnumerable<Notification>>(list?.notifications);
         }
 
         public async Task<IEnumerable<Merchant>> GetMerchantsByAnythingAsync(IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
         {
-            var list = await SearchByAnythingAsync("merchants", query , page, perPage, filterSearch, sortOrder);
+            var list = await SearchByAnythingAsync("merchants", query, page, perPage, filterSearch, sortOrder);
             return FromDynamic<IEnumerable<Merchant>>(list?.merchants);
         }
 
         public async Task<IEnumerable<Merchant_Users>> GetMerchantUsersByAnythingAsync(IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
         {
-            var list = await SearchByAnythingAsync("merchant_users", query , page, perPage, filterSearch, sortOrder);
+            var list = await SearchByAnythingAsync("merchant_users", query, page, perPage, filterSearch, sortOrder);
             return FromDynamic<IEnumerable<Merchant_Users>>(list?.merchant_users);
         }
 
         public async Task<IEnumerable<Role>> GetRolesByAnythingAsync(IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
         {
-            var list = await SearchByAnythingAsync("roles", query , page, perPage, filterSearch, sortOrder);
+            var list = await SearchByAnythingAsync("roles", query, page, perPage, filterSearch, sortOrder);
             return FromDynamic<IEnumerable<Role>>(list?.roles);
         }
 
@@ -164,16 +164,23 @@ namespace Vindi.NET
             return FromDynamic<Product>(result?.product);
         }
 
-        public async Task<Payment_Method> GetPaymentMethoidsByIdAsync(int id)
+        public async Task<Payment_Methods> GetPaymentMethoidsByIdAsync(int id)
         {
             var result = await SearchByIdAsync("payment_methods", id);
-            return FromDynamic<Payment_Method>(result?.payment_method);
+            return FromDynamic<Payment_Methods>(result?.payment_method);
         }
 
 
         public async Task<Subscription> GetSubscriptionsByIdAsync(int id)
         {
             var result = await SearchByIdAsync("subscriptions", id);
+            return FromDynamic<Subscription>(result?.subscription);
+        }
+
+
+        public async Task<Subscription> UpdateSubscriptionsByIdAsync(int id, object request)
+        {
+            var result = await PutByIdAsync("subscriptions", id, request);
             return FromDynamic<Subscription>(result?.subscription);
         }
 
@@ -298,6 +305,10 @@ namespace Vindi.NET
                 .WithHeaders(new { Authorization = _authorization })
                 .GetJsonAsync();
 
+        private async Task<dynamic> PutByIdAsync(string uri, int id, object requester)
+            => await $@"{_urlApi}/{uri}/{id}"
+                .WithHeaders(new { Authorization = _authorization })
+                .PutJsonAsync(requester).ReceiveJson();
 
         private static T FromDynamic<T>(dynamic d) where T : class
         {

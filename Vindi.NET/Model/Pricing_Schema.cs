@@ -10,7 +10,7 @@ namespace Vindi.NET.Model
         public object minimum_price { get; set; }
         public string schema_type { get; set; }
         public Pricing_Ranges[] pricing_ranges { get; set; }
-        public DateTime created_at { get; set; }
+        public DateTime? created_at { get; set; }
     }
 
 }
