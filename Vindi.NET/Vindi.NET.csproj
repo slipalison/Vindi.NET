@@ -13,6 +13,7 @@
     <AssemblyVersion>1.0.1.0</AssemblyVersion>
     <FileVersion>1.0.1.0</FileVersion>
     <Version>1.0.2</Version>
+    <Authors>slipalison</Authors>
   </PropertyGroup>
 
   <ItemGroup>
