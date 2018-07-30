@@ -6,7 +6,7 @@ namespace Vindi.NET.ConsoleTest
     {
         static void Main(string[] args)
         {
-            var config = new VindiConfiguration("https://sandbox-app.vindi.com.br", 1, "Basic x=");
+            var config = new VindiConfiguration("https://sandbox-app.vindi.com.br", 1, "Basic bXRyRmZ2dmFOVkZVY3ZLcEpLSTJhaFlKYmRldVc4TzJYUmI3OTd3SlhrRTpmcGFzc29zQGFjZXNzb2NhcmQuY29tLmJyDQo=");
 
             var service = new VindiService(config);
 

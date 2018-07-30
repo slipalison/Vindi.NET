@@ -15,6 +15,6 @@ namespace Vindi.NET.Model
         public DateTime updated_at { get; set; }
         public object metadata { get; set; }
         public Address address { get; set; }
-        public object[] phones { get; set; }
+        public Phone[] phones { get; set; }
     }
 }

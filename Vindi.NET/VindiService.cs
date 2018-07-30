@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Vindi.NET.Model;
+using Vindi.NET.Requesters;
 
 namespace Vindi.NET
 {
@@ -120,10 +121,22 @@ namespace Vindi.NET
             var result = await SearchByIdAsync("customers", id);
             return FromDynamic<Customer>(result?.customer);
         }
+        public async Task<Customer> CreateCustomersAsync(Customer customer)
+        {
+            var result = await PostByAnythingAsync("customers", customer);
+            return FromDynamic<Customer>(result?.customer);
+        }
+
 
         public async Task<Plan> GetPlansByIdAsync(int id)
         {
             var result = await SearchByIdAsync("plans", id);
+            return FromDynamic<Plan>(result?.plan);
+        }
+
+        public async Task<Plan> CreatePlanAsync(Plan plan)
+        {
+            var result = await PostByAnythingAsync("plans", plan);
             return FromDynamic<Plan>(result?.plan);
         }
 
@@ -133,15 +146,28 @@ namespace Vindi.NET
             return FromDynamic<Product>(result?.product);
         }
 
+        public async Task<Product> CreateProductsAsync(Product product)
+        {
+            var result = await PostByAnythingAsync("products", product);
+            return FromDynamic<Product>(result?.product);
+        }
+
         public async Task<Payment_Method> GetPaymentMethoidsByIdAsync(int id)
         {
             var result = await SearchByIdAsync("payment_methods", id);
             return FromDynamic<Payment_Method>(result?.payment_method);
         }
 
+
         public async Task<Subscription> GetSubscriptionsByIdAsync(int id)
         {
             var result = await SearchByIdAsync("subscriptions", id);
+            return FromDynamic<Subscription>(result?.subscription);
+        }
+
+        public async Task<Subscription> CreateSubscriptionAsync(SubscriptionRequester subscriptionRequester)
+        {
+            var result = await PostByAnythingAsync("subscriptions", subscriptionRequester);
             return FromDynamic<Subscription>(result?.subscription);
         }
 
@@ -217,10 +243,22 @@ namespace Vindi.NET
             return FromDynamic<Discount>(result?.discount);
         }
 
+        public async Task<Discount> CreateDiscountAsync(Discount discount)
+        {
+            var result = await PostByAnythingAsync("discounts", discount);
+            return FromDynamic<Product>(result?.discount);
+        }
+
         public async Task<Product_Items> GetProductItemByIdAsync(int id)
         {
             var result = await SearchByIdAsync("product_items", id);
             return FromDynamic<Product_Items>(result?.product_item);
+        }
+
+        public async Task<Product_Items> CreateProductItemAsync(Product_Items product_Items)
+        {
+            var result = await PostByAnythingAsync("product_items", product_Items);
+            return FromDynamic<Subscription>(result?.product_item);
         }
 
         public async Task<Bill_Items> GetBillItemByIdAsync(int id)
@@ -228,6 +266,14 @@ namespace Vindi.NET
             var result = await SearchByIdAsync("bill_items", id);
             return FromDynamic<Bill_Items>(result?.bill_item);
         }
+
+
+
+        private async Task<dynamic> PostByAnythingAsync(string uri, object requster)
+            => await $@"{_urlApi}/{uri}"
+                .WithHeaders(new { Authorization = _authorization })
+                .PostJsonAsync(requster)
+                .ReceiveJson();
 
 
         private async Task<dynamic> SearchByAnythingAsync(string uri, IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
