@@ -1,6 +1,7 @@
 ﻿using Flurl.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -80,6 +81,8 @@ namespace Vindi.NET
             return FromDynamic<IEnumerable<Message>>(list?.messages);
         }
 
+
+
         public async Task<IEnumerable<Import_Batche>> GetImportBatchesByAnythingAsync(IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
         {
             var list = await SearchByAnythingAsync("import_batches", query, page, perPage, filterSearch, sortOrder);
@@ -125,7 +128,19 @@ namespace Vindi.NET
         public async Task<Payment_Profile> GetPaymentProfileByIdAsync(int id)
         {
             var result = await SearchByIdAsync("payment_profiles", id);
-            return FromDynamic<Customer>(result?.payment_profile);
+            return FromDynamic<Payment_Profile>(result?.payment_profile);
+        }
+
+        public async Task<Payment_Profile> CreatePaymentProfileAsync(object requester)
+        {
+            var result = await PostByAnythingAsync("payment_profiles", requester);
+            return FromDynamic<Payment_Profile>(result?.payment_profile);
+        }
+
+        public async Task<Payment_Profile> DeletePaymentProfileAsync(int profileId)
+        {
+            var result = await DeleteByIdAsync("payment_profiles", profileId);
+            return FromDynamic<Payment_Profile>(result?.payment_profile);
         }
 
         public async Task<Customer> GetCustomersByIdAsync(int id)
@@ -287,11 +302,16 @@ namespace Vindi.NET
         }
 
 
-
         private async Task<dynamic> PostByAnythingAsync(string uri, object requster)
             => await $@"{_urlApi}/{uri}"
                 .WithHeaders(new { Authorization = _authorization })
                 .PostJsonAsync(requster)
+                .ReceiveJson();
+
+        private async Task<dynamic> DeleteByIdAsync(string uri, int id)
+            => await $@"{_urlApi}/{uri}/{id}"
+                .WithHeaders(new { Authorization = _authorization }).AllowAnyHttpStatus()
+                .DeleteAsync()
                 .ReceiveJson();
 
 
