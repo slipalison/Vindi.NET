@@ -8,6 +8,8 @@
         period_id,
         subscription_id,
         customer_id,
+        cancel_bills,
+        comments,
         amount,
         status,
         payment_method_id,

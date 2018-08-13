@@ -142,7 +142,11 @@ namespace Vindi.NET
             var result = await DeleteByIdAsync("payment_profiles", profileId);
             return FromDynamic<Payment_Profile>(result?.payment_profile);
         }
-
+        public async Task<Subscription> DeleteSubscriptionAsync(int id, IDictionary<FilterSearch, string> query = null)
+        {
+            var result = await DeleteByIdAndQueryAsync("subscriptions", id, query);
+            return FromDynamic<Subscription>(result?.subscription);
+        }
         public async Task<Customer> GetCustomersByIdAsync(int id)
         {
             var result = await SearchByIdAsync("customers", id);
@@ -314,7 +318,11 @@ namespace Vindi.NET
                 .DeleteAsync()
                 .ReceiveJson();
 
-
+        private async Task<dynamic> DeleteByIdAndQueryAsync(string uri, int id, IDictionary<FilterSearch, string> query = null)
+            => await $@"{_urlApi}/{uri}/{id}?query={VindiQueryString(query)}"
+                .WithHeaders(new { Authorization = _authorization }).AllowAnyHttpStatus()
+                .DeleteAsync()
+                .ReceiveJson();
         private async Task<dynamic> SearchByAnythingAsync(string uri, IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
             => await $@"{_urlApi}/{uri}?page={page}&per_page={perPage}&sort_by={filterSearch.ToString()}&sort_order={sortOrder.ToString()}{VindiQueryString(query)}"
                 .WithHeaders(new { Authorization = _authorization })
