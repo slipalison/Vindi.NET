@@ -319,10 +319,13 @@ namespace Vindi.NET
                 .ReceiveJson();
 
         private async Task<dynamic> DeleteByIdAndQueryAsync(string uri, int id, IDictionary<FilterSearch, string> query = null)
-            => await $@"{_urlApi}/{uri}/{id}?query={VindiQueryString(query)}"
+        {
+            var queryString = VindiQueryString(query);
+            return await $@"{_urlApi}/{uri}/{id}{(string.IsNullOrEmpty(queryString) ? string.Empty : queryString.Substring(1) )}"
                 .WithHeaders(new { Authorization = _authorization }).AllowAnyHttpStatus()
                 .DeleteAsync()
                 .ReceiveJson();
+        }
         private async Task<dynamic> SearchByAnythingAsync(string uri, IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
             => await $@"{_urlApi}/{uri}?page={page}&per_page={perPage}&sort_by={filterSearch.ToString()}&sort_order={sortOrder.ToString()}{VindiQueryString(query)}"
                 .WithHeaders(new { Authorization = _authorization })
