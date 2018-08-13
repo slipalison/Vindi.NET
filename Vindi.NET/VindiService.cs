@@ -296,13 +296,19 @@ namespace Vindi.NET
         public async Task<Product_Items> CreateProductItemAsync(CreateProductItemRequester product_Items)
         {
             var result = await PostByAnythingAsync("product_items", product_Items);
-            return FromDynamic<Subscription>(result?.product_item);
+            return FromDynamic<Product_Items>(result?.product_item);
+        }
+
+        public async Task<Product_Items> DeleteProductItemByIdAsync(int  id)
+        {
+            var result = await DeleteByIdAsync("product_items", id);
+            return FromDynamic<Product_Items>(result?.product_item);
         }
 
         public async Task<Product_Items> CreateProductItemAsync(dynamic product_Items)
         {
             var result = await PostByAnythingAsync("product_items", product_Items);
-            return FromDynamic<Subscription>(result?.product_item);
+            return FromDynamic<Product_Items>(result?.product_item);
         }
 
         public async Task<Bill_Items> GetBillItemByIdAsync(int id)
