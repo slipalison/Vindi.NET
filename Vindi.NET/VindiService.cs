@@ -332,9 +332,9 @@ namespace Vindi.NET
             return FromDynamicTo<Subscription>(result?.subscription);
         }
 
-        public async Task<Plan> UpdatePlanAsync(dynamic plan)
+        public async Task<Plan> UpdatePlanAsync(int id, dynamic plan)
         {
-            var result = await PutByAnythingAsync("plans", plan);
+            var result = await PutByIdAsync("plans", id, plan);
             return FromDynamicTo<Plan>(result?.plan);
         }
 
