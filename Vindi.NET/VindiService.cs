@@ -94,6 +94,12 @@ namespace Vindi.NET
             return FromDynamicTo<Subscription>(result?.subscription);
         }
 
+        public async Task<Bill> CreateBillAsync(dynamic billRequester)
+        {
+            var result = await PostByAnythingAsync("bills", billRequester);
+            return FromDynamicTo<Bill>(result?.bill);
+        }
+
         public async Task<Payment_Profile> DeletePaymentProfileAsync(int profileId)
         {
             var result = await DeleteByIdAsync("payment_profiles", profileId);
