@@ -32,6 +32,13 @@ namespace Vindi.NET
             return FromDynamicTo<Customer>(result?.customer);
         }
 
+
+        public async Task<Customer> UpdateCustomersAsync(int customerId, dynamic payload)
+        {
+            var result = await PutByIdAsync("customers", customerId, payload);
+            return FromDynamicTo<Customer>(result?.customer);
+        }
+
         public async Task<Discount> CreateDiscountAsync(Discount discount)
         {
             var result = await PostByAnythingAsync("discounts", discount);
