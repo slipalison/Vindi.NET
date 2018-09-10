@@ -99,6 +99,12 @@ namespace Vindi.NET
             var result = await PostByAnythingAsync("bills", billRequester);
             return FromDynamicTo<Bill>(result?.bill);
         }
+        
+        public async Task<Customer> UpdateCustomersAsync(int customerId, Customer customer)
+        {
+            var result = await PutByIdAsync("customers", customerId, customer);
+            return FromDynamicTo<Customer>(result?.customer);
+        }
 
         public async Task<Payment_Profile> DeletePaymentProfileAsync(int profileId)
         {
@@ -384,10 +390,10 @@ namespace Vindi.NET
                 .PostJsonAsync(requster)
                 .ReceiveJson();
 
-        private async Task<dynamic> PutByAnythingAsync(string uri, object requster)
+        private async Task<dynamic> PutByAnythingAsync(string uri, object requester)
             => await $@"{_urlApi}/{uri}"
                 .WithHeaders(new { Authorization = _authorization })
-                .PutJsonAsync(requster)
+                .PutJsonAsync(requester)
                 .ReceiveJson();
 
         private async Task<dynamic> PutByIdAsync(string uri, int id, object requester)
