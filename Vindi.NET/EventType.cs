@@ -15,6 +15,7 @@
         bill_seen,
         period_created,
         issue_created,
+        invoice_issued,
         payment_profile_created,
         message_seen
     }
