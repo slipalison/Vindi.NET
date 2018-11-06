@@ -31,7 +31,11 @@ namespace Vindi.NET
             var result = await PostByAnythingAsync("customers", customer);
             return FromDynamicTo<Customer>(result?.customer);
         }
-
+        public async Task<Customer> ArchiveCustomerAsync(int customerId)
+        {
+            var result = await DeleteByIdAsync("customers", customerId);
+            return FromDynamicTo<Customer>(result?.customer);
+        }
 
         public async Task<Customer> UpdateCustomersAsync(int customerId, dynamic payload)
         {
