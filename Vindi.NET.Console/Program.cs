@@ -6,10 +6,10 @@ namespace Vindi.NET.ConsoleTest
     {
         static void Main(string[] args)
         {
-            var config = new VindiConfiguration("https://sandbox-app.vindi.com.br", 1, "Basic bXRyRmZ2dmFOVkZVY3ZLcEpLSTJhaFlKYmRldVc4TzJYUmI3OTd3SlhrRTpmcGFzc29zQGFjZXNzb2NhcmQuY29tLmJyDQo=");
+            var config = new VindiConfiguration("https://app.vindi.com.br", 1, "Basic Z1UxeWozLWNwaUtINVpQNnNtOXBESkxkUjNWOUJNU25ubU1Pd3hsWFBkaw==");
 
             var service = new VindiService(config);
-
+           
             var customers = service.GetCustomersByAnythingAsync().GetAwaiter().GetResult();
             var plans = service.GetPlansByAnythingAsync().GetAwaiter().GetResult();
             var products = service.GetProductsByAnythingAsync().GetAwaiter().GetResult();
