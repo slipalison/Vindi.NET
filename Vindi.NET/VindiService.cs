@@ -158,6 +158,8 @@ namespace Vindi.NET
             return FromDynamicTo<Charge>(result?.charge);
         }
 
+
+
         public async Task<IEnumerable<Customer>> GetCustomersByAnythingAsync(IDictionary<FilterSearch, string> query = null, int page = 1, int perPage = 20, FilterSearch filterSearch = FilterSearch.id, SortOrder sortOrder = SortOrder.asc)
         {
             var list = await SearchByAnythingAsync("customers", query, page, perPage, filterSearch, sortOrder);
@@ -342,7 +344,11 @@ namespace Vindi.NET
             return FromDynamicTo<IEnumerable<Subscription>>(list?.subscriptions);
         }
 
-
+        public async Task<Charge> RetryCharge(int chargeId)
+        {
+            var result = await PostByAnythingBodyAsync("charges", chargeId.ToString(), "charge");
+            return FromDynamicTo<Charge>(result?.charge);
+        }
         public async Task<Subscription> GetSubscriptionsByIdAsync(int id)
         {
             var result = await SearchByIdAsync("subscriptions", id);
@@ -388,6 +394,11 @@ namespace Vindi.NET
                 .DeleteAsync()
                 .ReceiveJson();
 
+        private async Task<dynamic> PostByAnythingBodyAsync(string uri, string param, string action)
+            => await $@"{_urlApi}/{uri}/{param}/{action}"
+                .WithHeaders(new { Authorization = _authorization })
+                .PostAsync(null)
+                .ReceiveJson();
 
         private async Task<dynamic> PostByAnythingAsync(string uri, object requster)
             => await $@"{_urlApi}/{uri}"
