@@ -343,10 +343,16 @@ namespace Vindi.NET
             var list = await SearchByAnythingAsync("subscriptions", query, page, perPage, filterSearch, sortOrder);
             return FromDynamicTo<IEnumerable<Subscription>>(list?.subscriptions);
         }
-
+        
         public async Task<Charge> RetryCharge(int chargeId)
         {
             var result = await PostByAnythingBodyAsync("charges", chargeId.ToString(), "charge");
+            return FromDynamicTo<Charge>(result?.charge);
+        }
+
+        public async Task<Charge> Charge(int chargeId, string requester)
+        {
+            var result = await PutByIdAsync("charges", chargeId, requester);
             return FromDynamicTo<Charge>(result?.charge);
         }
         public async Task<Subscription> GetSubscriptionsByIdAsync(int id)
