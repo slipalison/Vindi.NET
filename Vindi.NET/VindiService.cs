@@ -350,9 +350,9 @@ namespace Vindi.NET
             return FromDynamicTo<Charge>(result?.charge);
         }
 
-        public async Task<Charge> Charge(int chargeId, string requester)
+        public async Task<Charge> Charge(int chargeId, dynamic payload)
         {
-            var result = await PutByIdAsync("charges", chargeId, requester);
+            var result = await PutByIdAsync("charges", chargeId, payload);
             return FromDynamicTo<Charge>(result?.charge);
         }
         public async Task<Subscription> GetSubscriptionsByIdAsync(int id)

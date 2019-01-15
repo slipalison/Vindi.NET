@@ -9,7 +9,6 @@ namespace Vindi.NET.ConsoleTest
             var config = new VindiConfiguration("https://sandbox-app.vindi.com.br", 1, "Basic bXRyRmZ2dmFOVkZVY3ZLcEpLSTJhaFlKYmRldVc4TzJYUmI3OTd3SlhrRTpmcGFzc29zQGFjZXNzb2NhcmQuY29tLmJyDQo=");
 
             var service = new VindiService(config);
-
             var customers = service.GetCustomersByAnythingAsync().GetAwaiter().GetResult();
             var plans = service.GetPlansByAnythingAsync().GetAwaiter().GetResult();
             var products = service.GetProductsByAnythingAsync().GetAwaiter().GetResult();
