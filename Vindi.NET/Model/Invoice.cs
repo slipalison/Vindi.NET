@@ -7,7 +7,7 @@ namespace Vindi.NET.Model
     public class Invoice
     {
         public int id { get; set; }
-        public int? amount { get; set; }
+        public decimal? amount { get; set; }
         public string status { get; set; }
         public string integration_invoice_id { get; set; }
         public string integration_reference { get; set; }
