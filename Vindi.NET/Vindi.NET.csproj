@@ -10,9 +10,9 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageIconUrl>https://camo.githubusercontent.com/a843ec6d92e004a4e78a51c301ace4850379251d/68747470733a2f2f76696e64692d626c6f672e73332e616d617a6f6e6177732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031372f31302f6c6f676f2d76696e64692d312e706e67</PackageIconUrl>
-    <AssemblyVersion>1.2.4.0</AssemblyVersion>
-    <FileVersion>1.2.4.0</FileVersion>
-    <Version>1.2.4</Version>
+    <AssemblyVersion>1.2.5.0</AssemblyVersion>
+    <FileVersion>1.2.5.0</FileVersion>
+    <Version>1.2.5</Version>
     <Authors>slipalison</Authors>
   </PropertyGroup>
 
