@@ -14,10 +14,10 @@ namespace Vindi.NET.Model
         public string print_url { get; set; }
         public string description { get; set; }
         public string settings { get; set; }
-        public string issued_at { get; set; }
-        public string scheduled_at { get; set; }
-        public string created_at { get; set; }
-        public string updated_at { get; set; }
+        public DateTime? issued_at { get; set; }
+        public DateTime? scheduled_at { get; set; }
+        public DateTime? created_at { get; set; }
+        public DateTime? updated_at { get; set; }
         public Bill bill { get; set; }
         public Customer customer { get; set; }
     }
